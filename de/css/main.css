@@ -467,7 +467,7 @@ figcaption {
   height: 16px;
   border-radius: 50%;
   /*border: 2px solid #F5F7FA;*/
-  background: #7076f0;
+  background: #f7a71e;
   margin-top: 10px;
   z-index: 100;
 }
@@ -4054,6 +4054,10 @@ figcaption {
   background-color: #f36763;
 }
 
+.style-classic.palette-yellow .btn--primary {
+  background-color: #f7a71e;
+}
+
 .style-bold.palette-blue .btn--primary {
   background-color: #2859da;
 }
@@ -4396,7 +4400,7 @@ th {
   z-index: -1;
   content: '';
   display: block;
-  border: 5px solid #7076f0;
+  border: 5px solid #f7a71e;
 }
 
 .ribbon span {
@@ -4404,7 +4408,7 @@ th {
   display: block;
   width: 225px;
   padding: 15px 0;
-  background-color: #7076f0;
+  background-color: #f7a71e;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   color: #fff;
   font: 700 18px/1 'Lato', sans-serif;
@@ -4841,6 +4845,12 @@ body.has-theme-bar #site-wrap {
 }
 
 @media (min-width: 801px) {
+  .style-classic.palette-yellow .navbar__menu a:not(.btn):after {
+    background: #f7a71e;
+  }
+}
+
+@media (min-width: 801px) {
   .style-bold.palette-blue .navbar__menu a:not(.btn):after {
     background: #2859da;
   }
@@ -5112,6 +5122,10 @@ body.has-theme-bar #site-wrap {
   background-color: #f36763;
 }
 
+.style-classic.palette-yellow .bg-primary {
+  background-color: #f7a71e;
+}
+
 .style-bold.palette-blue .bg-primary {
   background-color: #2859da;
 }
@@ -5144,6 +5158,9 @@ body.has-theme-bar #site-wrap {
 }
 .style-classic.palette-red .section__title:after {
   background-color: #f36763;
+}
+.style-classic.palette-yellow .section__title:after {
+  background-color: #f7a71e;
 }
 .style-classic .bg-primary .section__title:after {
   background-color: currentColor;
@@ -5253,7 +5270,7 @@ body.has-theme-bar #site-wrap {
   border-color: #2c343c;
 }
 .mode-light .bg-primary {
-  color: #fff;
+  color: #000;
 }
 .mode-light .bg-primary pre,
 .mode-light .bg-primary th {
@@ -5540,6 +5557,10 @@ body.has-theme-bar #site-wrap {
 
 .style-classic.palette-red .card .btn--primary {
   background-color: #f36763;
+}
+
+.style-classic.palette-yellow .card .btn--primary {
+  background-color: #f7a71e;
 }
 
 .style-bold.palette-blue .card .btn--primary {
