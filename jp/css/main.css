@@ -5004,6 +5004,11 @@ body.has-theme-bar #site-wrap {
   background: none;
 }
 
+.hero__media {
+  display: flex;
+  justify-content: center;
+}
+
 .hero__media img,
 .item__media img {
   display: block;
