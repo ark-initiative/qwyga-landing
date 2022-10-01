@@ -4032,24 +4032,44 @@ figcaption {
   background-color: #8696a6;
 }
 
+.badge-container {
+  position: relative;
+  text-align: center;
+  color: black;
+  font-weight: 700;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 45%;
+  z-index: 100;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .app-store-badge {
   height: 50px;
   width: auto;
+  opacity: 10%;
 }
 
 .play-store-badge {
   height: 70px;
   width: auto;
+  opacity: 10%;
 }
 
 .app-store-badge-small {
   height: 30px;
   width: auto;
+  opacity: 10%;
 }
 
 .play-store-badge-small {
   height: 45px;
   width: auto;
+  opacity: 10%;
 }
 
 .style-classic.palette-blue .btn--primary {
@@ -4459,6 +4479,7 @@ th {
 .ribbon-top-right {
   top: -10px;
   right: -10px;
+  z-index: 100;
 }
 
 .ribbon-top-right::before,
