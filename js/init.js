@@ -100,4 +100,12 @@ window.removeAnnouncementHandlers = function() {
 		}
 		anncmntClose.removeEventListener('click', announcementCloseHandler, false);
 	}
-}
+};
+
+// Accordion
+var faqAccordions = document.querySelectorAll('.handorgel');
+Array.from(faqAccordions).forEach((faqAccordion) => {
+  var accordion = new handorgel(faqAccordion, {
+    multiSelectable: true
+})
+});
