@@ -4051,25 +4051,21 @@ figcaption {
 .app-store-badge {
   height: 50px;
   width: auto;
-  opacity: 10%;
 }
 
 .play-store-badge {
   height: 70px;
   width: auto;
-  opacity: 10%;
 }
 
 .app-store-badge-small {
   height: 30px;
   width: auto;
-  opacity: 10%;
 }
 
 .play-store-badge-small {
   height: 45px;
   width: auto;
-  opacity: 10%;
 }
 
 .style-classic.palette-blue .btn--primary {
