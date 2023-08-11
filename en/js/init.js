@@ -109,3 +109,13 @@ Array.from(faqAccordions).forEach((faqAccordion) => {
     multiSelectable: true
 })
 });
+
+/*
+var language = window.navigator.userLanguage || window.navigator.language;
+//alert(language);
+if( language !== "de-DE" && !window.location.pathname.startsWith("/en/") ){
+	console.log("Will re-direct to English page!");
+	//console.log(window.location.origin);
+	window.location.replace(window.location.origin + "/en" + window.location.pathname );
+}
+*/
