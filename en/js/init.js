@@ -119,3 +119,29 @@ if( language !== "de-DE" && !window.location.pathname.startsWith("/en/") ){
 	window.location.replace(window.location.origin + "/en" + window.location.pathname );
 }
 */
+
+const queryString = window.location.search;
+//console.log(queryString);
+if( queryString.includes("campaign=") ){
+	const campaign_id = queryString.split("campaign=")[1];
+	console.log("Campaign ID is:", campaign_id); // or campaign name ?
+
+	var links, i, le;
+	links = document.getElementsByTagName('a');
+	for (i = 0, le = links.length; i < le; i++) {
+		if(links[i].href.startsWith("https://apps.apple.com") && !links[i].href.startsWith("https://apps.apple.com/account")){
+			//links[i].href = "http://www.mysite.com/?redirect=" + encodeURIComponent(links[i].href);
+			console.log("Apple link:", links[i]); // should replace "ct="
+			console.log(links[i].href.split("LandingPage"))
+			const split = links[i].href.split("LandingPage");
+			links[i].href = split[0] + campaign_id + split[1];
+		}
+		else if(links[i].href.startsWith("https://play.google.com/store/apps")){
+			console.log("Google link:", links[i]);
+			const split = links[i].href.split("&referrer=");
+			console.log(split)
+			//links[i].href = links[i].href + "&referrer=" + campaign_id;
+			links[i].href = split[0] + "&referrer=utm_source=facebook&utm_medium=social&utm_campaign=" + campaign_id;
+		}
+	}
+}
