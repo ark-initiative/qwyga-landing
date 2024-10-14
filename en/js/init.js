@@ -105,9 +105,26 @@ window.removeAnnouncementHandlers = function() {
 // Accordion
 var faqAccordions = document.querySelectorAll('.handorgel');
 Array.from(faqAccordions).forEach((faqAccordion) => {
-  var accordion = new handorgel(faqAccordion, {
-    multiSelectable: true
-})
+	var accordion = new handorgel(faqAccordion, {
+		multiSelectable: true
+	});
+	console.log(faqAccordion);
+
+	accordion.on('fold:open', (fold) => {
+		console.log("Opened fold:", fold);
+
+		var icon = faqAccordion.querySelector('.handorgel__icon');
+		console.log(icon);
+		icon.innerHTML = "-";
+	});
+
+	accordion.on('fold:close', (fold) => {
+		console.log("Closed fold:", fold);
+
+		var icon = faqAccordion.querySelector('.handorgel__icon');
+		console.log(icon);
+		icon.innerHTML = "+";
+	});
 });
 
 /*
@@ -122,7 +139,7 @@ if( language !== "de-DE" && !window.location.pathname.startsWith("/en/") ){
 
 const queryString = window.location.search;
 //console.log(queryString);
-if( queryString.includes("campaign=") ){
+if( queryString.includes("campaign=FB-AD-POINT") ){
 	const campaign_id = queryString.split("campaign=")[1];
 	console.log("Campaign ID is:", campaign_id); // or campaign name ?
 
@@ -131,7 +148,7 @@ if( queryString.includes("campaign=") ){
 	for (i = 0, le = links.length; i < le; i++) {
 		if(links[i].href.startsWith("https://apps.apple.com") && !links[i].href.startsWith("https://apps.apple.com/account")){
 			//links[i].href = "http://www.mysite.com/?redirect=" + encodeURIComponent(links[i].href);
-			console.log("Apple link:", links[i]); // should replace "ct="
+			console.log("Apple link:", links[i]);
 			console.log(links[i].href.split("LandingPage"))
 			const split = links[i].href.split("LandingPage");
 			links[i].href = split[0] + campaign_id + split[1];
@@ -144,4 +161,34 @@ if( queryString.includes("campaign=") ){
 			links[i].href = split[0] + "&referrer=utm_source=facebook&utm_medium=social&utm_campaign=" + campaign_id;
 		}
 	}
+	// Theoretically, we could also create customized app store pages per ad.
+	// In that case, we could replace link with custom one altogether.
+
+	// For campaign with "Komm zum Punkt"
+	const title_containers = document.getElementsByClassName("hero__title");
+	console.log(title_containers);
+	title_containers[0].innerHTML = "Komm zum Punkt. Auf Japanisch."
+	// Same can be done for "hero__subtitle"
+	/*const subtitle_containers = document.getElementsByClassName("hero__subtitle");
+	console.log(subtitle_containers);
+	subtitle_containers[0].innerHTML = "";
+
+	title_containers[0].innerHTML = "Lern Japanisch. Ernsthaft."*/
+
+	const section_text_containers = document.getElementsByClassName("section__text");
+	console.log(section_text_containers);
+	section_text_containers[0].innerHTML = `
+	Aus dem Schulunterricht hast du beim Englisch- oder Französischunterricht vielleicht eine starke Abneigung gegen Grammatik entwickelt, weil du das alles <span class='highlight-container' style='font-size:30px'><span class='highlight'>nicht wirklich verstanden</span></span> hast.
+	Deine Noten gingen in den Keller, und du bist überzeugt davon, dass du für Sprachenlernen nicht gemacht bist.
+	<br><br>
+	Daher greifst du vielleicht lieber zu Produkten, die vorgeben, dass man Sprachen ganz spielerisch lernen könnte, indem man einfach ein paar Sätze auswendig lernt.
+	Und so arbeitest du dich monate- oder jahrelang durch einen Kurs, <span class='highlight-container' style='font-size:30px'><span class='highlight'>ohne nennenswerte Fortschritte</span></span> zu machen.
+	<br><br>
+	<div style='text-align: right;width:60%;transform: translateX(65%);'>Dabei lernst du doch Japanisch, um dich in Japan sicher durch die Städte bewegen zu können. Neue Freundschaften zu knüpfen.
+	Japanische Bücher zu lesen. Anime im Original anzuschauen. Kurz: Die Seele Japans zu atmen.</div>
+	<br><br>
+	Dafür reichen ein paar auswendiggelernte Sätze nicht aus. Du brauchst <span class='highlight-container' style='font-size:30px'><span class='highlight'>Kontrolle</span></span> darüber, was du sagst.
+	Du brauchst Verständnis, warum du etwas sagst. Dieses Verständnis gibt dir das  Selbstvertrauen, das du brauchst, um tatsächlich Japanisch zu sprechen.
+	Und du brauchst das Selbstvertrauen</span></span>, tatsächlich Japanisch zu sprechen. Du machst Japanisch zu deiner Sprache.
+	`
 }

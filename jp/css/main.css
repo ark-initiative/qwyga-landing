@@ -4437,7 +4437,7 @@ th {
   background-color: #f7a71e;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   color: #fff;
-  font: 700 13px/1.5 'Lato', sans-serif;
+  font: 700 18px/1.5 'Lato', sans-serif;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
   text-align: center;
@@ -5343,6 +5343,73 @@ body.has-theme-bar #site-wrap {
   border-style: solid;
   border-width: 1px;
   border-radius: 10%;
+}
+
+.arrow {
+  height: 150px;
+  width: auto;
+}
+
+.highlight-container, .highlight-container-yellow, .highlight-container-large {
+  color: white;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+.highlight-container, .highlight-container-yellow, .highlight-container-large, .highlight {
+  position: relative;
+}
+
+.highlight-container, .highlight-container-yellow, .highlight-container-large {
+  display: inline-block;
+}
+
+.highlight-container:before {
+  content: " ";
+  display: block;
+  height: 100%;
+  width: 100%;
+  margin-left: -3px;
+  margin-right: -3px;
+  position: absolute;
+  background: #4baacf;
+  transform: rotate(2deg);
+  top: -1px;
+  left: -1px;
+  border-radius: 20% 25% 20% 24%;
+  padding: 5px 3px 3px 5px;
+}
+
+.highlight-container-yellow:before {
+  content: " ";
+  display: block;
+  height: 100%;
+  width: 100%;
+  margin-left: -3px;
+  margin-right: -3px;
+  position: absolute;
+  background: #f7a71e;
+  transform: rotate(2deg);
+  top: -1px;
+  left: -1px;
+  border-radius: 20% 25% 20% 24%;
+  padding: 5px 3px 3px 5px;
+}
+
+.highlight-container-large:before {
+  content: " ";
+  display: block;
+  height: 100%;
+  width: 100%;
+  margin-left: -3px;
+  margin-right: -3px;
+  position: absolute;
+  background: #4baacf;
+  transform: rotate(2deg);
+  top: -1px;
+  left: -1px;
+  border-radius: 20% 25% 20% 24%;
+  padding: 15px 3px 3px 15px;
 }
 
 /**
