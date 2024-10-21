@@ -137,10 +137,7 @@ if( language !== "de-DE" && !window.location.pathname.startsWith("/en/") ){
 }
 */
 
-const queryString = window.location.search;
-//console.log(queryString);
-if( queryString.includes("campaign=FB-AD-POINT") ){
-	const campaign_id = queryString.split("campaign=")[1];
+initAdLinks = function(campaign_id) {
 	console.log("Campaign ID is:", campaign_id); // or campaign name ?
 
 	var links, i, le;
@@ -163,7 +160,13 @@ if( queryString.includes("campaign=FB-AD-POINT") ){
 	}
 	// Theoretically, we could also create customized app store pages per ad.
 	// In that case, we could replace link with custom one altogether.
+}
 
+const queryString = window.location.search;
+//console.log(queryString);
+if( queryString.includes("campaign=FB-AD-POINT") ){
+	const campaign_id = queryString.split("campaign=")[1];
+	initAdLinks(campaign_id);
 	// For campaign with "Komm zum Punkt"
 	const title_containers = document.getElementsByClassName("hero__title");
 	console.log(title_containers);
@@ -191,4 +194,31 @@ if( queryString.includes("campaign=FB-AD-POINT") ){
 	Du brauchst Verständnis, warum du etwas sagst. Dieses Verständnis gibt dir das  Selbstvertrauen, das du brauchst, um tatsächlich Japanisch zu sprechen.
 	Und du brauchst das Selbstvertrauen</span></span>, tatsächlich Japanisch zu sprechen. Du machst Japanisch zu deiner Sprache.
 	`
+
+	// Save data to sessionStorage
+	sessionStorage.setItem("ad_name", campaign_id);
+} else if( queryString.includes("campaign=") ){
+	// Some other campaign;
+	const campaign_id = queryString.split("campaign=")[1];
+	initAdLinks(campaign_id);
+	// Save data to sessionStorage
+	sessionStorage.setItem("ad_name", campaign_id);
+} else {
+	// Get saved data from sessionStorage
+	let data = sessionStorage.getItem("ad_name");
+	console.log("This ad:", data);
+	// This means that this is still from point ad.
+	if( data !== null ){
+		initAdLinks(data);
+
+		// init header link
+		const navbar_logo = document.getElementsByClassName("navbar__logo");
+		console.log(navbar_logo);
+		navbar_logo[0].href = "/?campaign=" + ad_name;
+
+		//console.log("Current URL:", )
+		//sessionStorage.removeItem("point_ad");
+	}
 }
+
+console.log("I am called");
