@@ -155,7 +155,7 @@ initAdLinks = function(campaign_id) {
 			const split = links[i].href.split("&referrer=");
 			console.log(split)
 			//links[i].href = links[i].href + "&referrer=" + campaign_id;
-			links[i].href = split[0] + "&referrer=utm_source=facebook&utm_medium=social&utm_campaign=" + campaign_id;
+			links[i].href = split[0] + "&referrer=utm_source%3Dfacebook%26utm_medium%3Dsocial%26utm_campaign%3D" + campaign_id;
 		}
 	}
 	// Theoretically, we could also create customized app store pages per ad.
