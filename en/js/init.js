@@ -214,7 +214,7 @@ if( queryString.includes("campaign=FB-AD-POINT") ){
 		// init header link
 		const navbar_logo = document.getElementsByClassName("navbar__logo");
 		console.log(navbar_logo);
-		navbar_logo[0].href = "/?campaign=" + ad_name;
+		navbar_logo[0].href = "/?campaign=" + data;
 
 		//console.log("Current URL:", )
 		//sessionStorage.removeItem("point_ad");
