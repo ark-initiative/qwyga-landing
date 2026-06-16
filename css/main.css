@@ -5057,6 +5057,12 @@ body.has-theme-bar #site-wrap {
     font-size: 1.11111rem;
   }
 }
+.section.features.text-yellow .feature__title,
+.section.features.text-yellow .feature__subtitle,
+.section.features.text-yellow .feature__copy {
+  color: #f7a71e;
+}
+
 .feature__subtitle {
   font-size: 1.33333em;
   line-height: 1.25;
@@ -5068,6 +5074,14 @@ body.has-theme-bar #site-wrap {
 
 .item__subtitle {
   font-size: 0.88889em;
+}
+
+.baka-grid-section .item__title {
+  font-size: 2.5rem;
+}
+.baka-grid-section .item__subtitle,
+.baka-grid-section .item__copy {
+  font-size: 1.3rem;
 }
 
 .item__actions {
@@ -5100,6 +5114,12 @@ body.has-theme-bar #site-wrap {
 .item__meta-sep {
   font-weight: 700;
   margin: 0 3px;
+}
+
+.grid .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media (min-width: 961px) {
@@ -5146,8 +5166,23 @@ body.has-theme-bar #site-wrap {
   background: #1f1f20;
 }
 
+.bg-black {
+  background: #000;
+}
+
 .text-yellow {
   color: #f7a71e;
+}
+
+/* Page-specific adjustments for baka-land CTA */
+.baka-cta .highlight-container:before,
+.baka-cta .highlight-container-large:before,
+.baka-cta .highlight-container-yellow:before,
+.baka-cta .highlight:before {
+  background: #000 !important;
+}
+.baka-cta .arrow {
+  filter: brightness(0) saturate(100%);
 }
 
 .style-classic.palette-blue .bg-primary {
@@ -5418,6 +5453,24 @@ body.has-theme-bar #site-wrap {
   left: -1px;
   border-radius: 20% 25% 20% 24%;
   padding: 15px 3px 3px 15px;
+}
+
+/* Compact spacing for grid sections (reduced to tighten vertical gaps) */
+.grid-section {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+@media (min-width: 801px) {
+  .grid-section {
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+}
+@media (min-width: 961px) {
+  .grid-section {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
 }
 
 /**
